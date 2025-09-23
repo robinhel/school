@@ -1,0 +1,14 @@
+C:\Users\hellg\repos\school\bin\Debug\net8.0\school.exe
+C:\Users\hellg\repos\school\bin\Debug\net8.0\school.deps.json
+C:\Users\hellg\repos\school\bin\Debug\net8.0\school.runtimeconfig.json
+C:\Users\hellg\repos\school\bin\Debug\net8.0\school.dll
+C:\Users\hellg\repos\school\bin\Debug\net8.0\school.pdb
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.AssemblyInfoInputs.cache
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.AssemblyInfo.cs
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.csproj.CoreCompileInputs.cache
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.dll
+C:\Users\hellg\repos\school\obj\Debug\net8.0\refint\school.dll
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.pdb
+C:\Users\hellg\repos\school\obj\Debug\net8.0\school.genruntimeconfig.cache
+C:\Users\hellg\repos\school\obj\Debug\net8.0\ref\school.dll
