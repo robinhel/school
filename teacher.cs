@@ -15,4 +15,10 @@ class Teacher : IUser
     {
         return username == Username && password == _password;
     }
+    public void Show()
+    {
+        Console.WriteLine($"Logged in: {Username}");
+    }
+
+        
 }

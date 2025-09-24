@@ -17,4 +17,9 @@ class Student : IUser
     {
         return username == Email && password == _password;
     }
+        public void Show()
+    {
+        Console.WriteLine($"Logged in: {Name}");
+    }
+        
 }

@@ -1,6 +1,8 @@
 namespace App;
 
-interface IUser
+public interface IUser
 {
     public bool TryLogin(string username, string password);
+
+    public void Show();
 }

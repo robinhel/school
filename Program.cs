@@ -1,20 +1,24 @@
-﻿using App;
+﻿using System.Collections;
+using App;
 
 List<IUser> users = new List<IUser>();
 List<Course> Courses = new List<Course>();
-users.Add(new Student("teststudent", "mail", "pass"));
-users.Add(new Teacher("robin", "password"));
-users.Add(new Admin("testadmin", "pass"));
+Courses.Add(new Course("math", "Calle", "long"));
+users.Add(new Student("s", "s", "s"));
+users.Add(new Teacher("t", "t"));
+users.Add(new Admin("a", "a"));
 
 IUser? active_user = null;
 
 bool running = true;
 
+
+
 while (running)
 {
     Console.Clear();
 
-    if (active_user == null)
+    if (active_user == null) //-----------------------------------LOGIN---------------------------------------------
     {
         Console.Write("Username: ");
         string username = Console.ReadLine();
@@ -33,41 +37,105 @@ while (running)
             }
         }
     }
+
+
     else
     {
         Console.WriteLine("--- School System ---");
 
-        if (active_user is Teacher teacher)
+        if (active_user is Teacher teacher) //-----------------------TEACHER-----------------------------------------
         {
-            Console.WriteLine("Welcome Teacher" + teacher.Username);
-        }
-        if (active_user is Student student)
-        {
-            Console.WriteLine("Welcome Student " + student.Name);
-            Console.WriteLine();
-        }
-        if (active_user is Admin admin)
-        {
-            Console.WriteLine("Welcome Admin " + admin.Name);
-            Console.WriteLine("enter account to make a new account");
-            Console.WriteLine("enter course to create a course");
-            Console.WriteLine("logout");
-
-            string input = Console.ReadLine().ToLower();
-            switch (input)
+            teacher.Show();
+            Messages.TeacherMenu();
+            string t_input = Console.ReadLine();
+            switch (t_input)
             {
-                case "account":
-                    admin.CreateAccount(users);
+                case "1":
+                    //view
                     break;
-
-                case "course":
-                    Course.addcourse(Courses);
+                case "2":
+                    //Add 
                     break;
-
-                case "logout":
+                case "3":
+                    //Grade (wait)
+                    break;
+                case "4":
+                    //schedule
+                    break;
+                case "5":
+                    //Logout
                     active_user = null;
                     break;
             }
+        }
+        if (active_user is Student student) //--------------------------STUDENT----------------------------------------
+        {
+            student.Show();
+            Messages.StudentMenu();
+            string s_input = Console.ReadLine();
+            switch (s_input)
+            {
+                case "1":
+                    Course.ShowCourse(Courses);
+                    Messages.EnterToContinue();
+                    //view courses
+                    break;
+                case "2":
+                    //Check schedule
+                    break;
+                case "3":
+                    //Submit assignment
+
+                    break;
+                case "4":
+                    //Check Grades (wait)
+                    break;
+                case "5":
+                    //logout
+                    active_user = null;
+                    break;
+            }
+
+
+        }
+        if (active_user is Admin admin) //---------------------------------ADMIN--------------------------------------
+        {
+            admin.Show();
+            Messages.AdminMenu();
+
+            string a_input = Console.ReadLine().ToLower();
+            switch (a_input)
+            {
+
+                case "1":
+                    //Manage users (add or remove)
+                    Messages.ManageUsersMenu();
+                    switch (Console.ReadLine().ToLower())
+                    {
+                        case "add":
+                            admin.CreateAccount(users);
+                            break;
+                        case "remove":
+                            admin.RemoveUser(users);
+                            Console.ReadLine();
+                            break;
+                    }
+                    break;
+                case "2":
+                    //Create a course
+                    Course.addcourse(Courses, users);
+                    break;
+
+                case "3":
+                    //Logout
+                    active_user = null;
+                    break;
+
+                case null:
+                    Console.WriteLine("please enter a valid number!");
+                    break;
+            }
+            //----------------------------------------------------------------------------------------------------------
         }
     }
 }

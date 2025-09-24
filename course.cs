@@ -1,3 +1,6 @@
+using System.Reflection.Metadata;
+using Microsoft.VisualBasic;
+
 namespace App;
 
 class Course
@@ -5,36 +8,35 @@ class Course
 
     public string Courses;
     public string Professor;
-    public string Time;
+    public string Points;
 
-    public Course(string courses, string professor, string time)
+    public Course(string courses, string professor, string points)
     {
         Courses = courses;
         Professor = professor;
-        Time = time;
+        Points = points;
     }
 
-    public static void addcourse(List<Course> Courses)
+    public static void addcourse(List<Course> Courses,List<IUser> users)
     {
         {
             Console.WriteLine("what is the name of the course you want to create?");
             string courses = Console.ReadLine();
             Console.WriteLine("what professor is going to teach the course?");
             string professor = Console.ReadLine();
-            Console.WriteLine("how long is the course going to be?");
-            string time = Console.ReadLine();
+            Console.WriteLine("how much points do you earn?");
+            string points = Console.ReadLine();
 
-            Courses.Add(new Course(courses, professor, time));
-            Courses.Add(new Course("Math", "Max", "0"));
+            Courses.Add(new Course(courses, professor, points));
         }
     }
 
-    public void ShowCourse(List<Course> courses)
+    public static void ShowCourse(List<Course> courses)
     {
         Console.WriteLine("courses avalible are:");
         foreach (Course c in courses)
         {
-            Console.WriteLine($"kurs: {c.Courses}, lärare: {c.Professor}, time: {c.Time}years");
+            Console.WriteLine($"kurs: ({c.Courses}), lärare: ({c.Professor}), points: ({c.Points})");
         }
     }
 
